@@ -1,0 +1,10 @@
+<h1>This is the campgrounds page!</h1>
+
+<div>
+    <% campgrounds.forEach((ele) => { %>
+        <h4><%= ele.name %></h4>
+        <img src="<%= ele.image %>" alt="">
+    <% }) %>
+</div>
+
+<a href="/">Back to landing page</a>
