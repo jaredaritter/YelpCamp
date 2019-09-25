@@ -7,9 +7,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
 var campgrounds = [
-    {name: 'Salmon Creek', image: 'https://s3.amazonaws.com/images.gearjunkie.com/uploads/2016/08/blm-camping.jpg'},
+    {name: 'Salmon Creek', image: 'https://www.tripsavvy.com/thmb/B99SUpBFjesrl8TFUJBSrGAY0SA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-508066351-5a12280d9e942700376da496.jpg'},
     {name: 'Granite Hill', image: 'https://s3.amazonaws.com/images.gearjunkie.com/uploads/2016/08/blm-camping.jpg'},
-    {name: 'Mountain Goats Rest', image: 'https://s3.amazonaws.com/images.gearjunkie.com/uploads/2016/08/blm-camping.jpg'}
+    {name: 'Mountain Goats Rest', image: 'https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/07/main/litter-free-campground-sun-0816.jpg'},
+    {name: 'Salmon Creek', image: 'https://www.tripsavvy.com/thmb/B99SUpBFjesrl8TFUJBSrGAY0SA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-508066351-5a12280d9e942700376da496.jpg'},
+    {name: 'Granite Hill', image: 'https://s3.amazonaws.com/images.gearjunkie.com/uploads/2016/08/blm-camping.jpg'},
+    {name: 'Mountain Goats Rest', image: 'https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/07/main/litter-free-campground-sun-0816.jpg'},
+    {name: 'Salmon Creek', image: 'https://www.tripsavvy.com/thmb/B99SUpBFjesrl8TFUJBSrGAY0SA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-508066351-5a12280d9e942700376da496.jpg'},
+    {name: 'Granite Hill', image: 'https://s3.amazonaws.com/images.gearjunkie.com/uploads/2016/08/blm-camping.jpg'},
+    {name: 'Mountain Goats Rest', image: 'https://img.sunset02.com/sites/default/files/styles/4_3_horizontal_inbody_900x506/public/image/2016/07/main/litter-free-campground-sun-0816.jpg'}
 ];
 
 app.get('/', (req, res) => {
