@@ -23,3 +23,9 @@ Each Campground has:
 
 * Add a better header/title
 * Make campgrounds display in a grid
+
+# Add Mongoose
+
+* Install and configure Mongoose
+* Setup campground model
+* Use campground model inside of our routes!
