@@ -2,7 +2,9 @@ const express = require('express'),
       request = require('request'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
-      app = express();
+      app = express(),
+      Campground = require("./models/campground"),
+      seedDB = require('./seeds');
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
@@ -11,27 +13,7 @@ mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-// Schema Setup
-var campgroundSchema = new mongoose.Schema({
-    name: String, 
-    image: String,
-    description: String
-});
-
-var Campground = mongoose.model("Campground", campgroundSchema);
-
-// Campground.create({
-//     name: "Salmon Creek",
-//     image: "https://www.tripsavvy.com/thmb/B99SUpBFjesrl8TFUJBSrGAY0SA=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-508066351-5a12280d9e942700376da496.jpg",
-//     description: "This is a beautiful campground with a creek full of trout"
-// }, (err, campground) => {
-//     if (err) {
-//         console.log(err);
-//     } else { 
-//         console.log("New campground: ");
-//         console.log(campground);
-//     }
-// });
+seedDB();
 
 app.get('/', (req, res) => {
     res.render('landing');
@@ -75,11 +57,12 @@ app.post('/campgrounds', (req, res) => {
 // SHOW - shows more info about one campground
 app.get('/campgrounds/:id', (req, res) => {
     // find the campground with provided ID
-    Campground.findById(req.params.id, (err, foundCampground) => {
+    Campground.findById(req.params.id).populate("comments").exec((err, foundCampground) => {
         if (err) {
             console.log(err);
         } else {
             // render show template with that campground
+            console.log(foundCampground);
             res.render("show", {campground: foundCampground});
         }
     })
