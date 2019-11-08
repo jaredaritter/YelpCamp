@@ -12,10 +12,14 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect("mongodb://localhost/yelp_camp");
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 seedDB();
 
+// ========================
+// ROUTES
+// ========================
 app.get('/', (req, res) => {
     res.render('landing');
 });
