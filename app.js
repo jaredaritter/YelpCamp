@@ -33,6 +33,10 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 // ========================
 // ROUTES
 // ========================
@@ -92,7 +96,7 @@ app.get('/campgrounds/:id', (req, res) => {
 // ===========================
 // COMMENTS
 // ===========================
-app.get('/campgrounds/:id/comments/new', (req, res) => {
+app.get('/campgrounds/:id/comments/new', isLoggedIn, (req, res) => {
     // Find campground by ID
     Campground.findById(req.params.id, (err, campground) => {
         if (err) {
@@ -103,7 +107,7 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
     })
 });
 
-app.post('/campgrounds/:id/comments', (req, res) => {
+app.post('/campgrounds/:id/comments', isLoggedIn, (req, res) => {
     // get campground info
     Campground.findById(req.params.id, (err, campground) => {
         if (err) {
@@ -163,6 +167,14 @@ app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/campgrounds');
 });
+
+// FUNCTIONS
+function isLoggedIn(req, res, next){
+    if (req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
 
 // =========================
 //  CATCHALL 
