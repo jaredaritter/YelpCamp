@@ -27,7 +27,7 @@
                     </p>
                     <hr>
                     <% campground.comments.forEach(comment => { %>
-                        <strong><%= comment.author %></strong> - 10 days ago
+                        <strong><%= comment.author.username %></strong> - 10 days ago
                         <p class="card-text">
                             <%= comment.text%>
                         </p>
