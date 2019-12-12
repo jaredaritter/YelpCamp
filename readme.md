@@ -29,3 +29,5 @@ Each Campground has:
 * Install and configure Mongoose
 * Setup campground model
 * Use campground model inside of our routes!
+
+# Readme incomplete at this time
