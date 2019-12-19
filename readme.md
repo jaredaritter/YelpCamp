@@ -48,3 +48,6 @@
 * Add Update route
 * Fix $set problem
 
+## Deleting Campgrounds
+* Add Destroy route
+* Add Delete button
