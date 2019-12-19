@@ -30,4 +30,21 @@ Each Campground has:
 * Setup campground model
 * Use campground model inside of our routes!
 
-# Readme incomplete at this time
+# Readme incomplete for middle section of course. Will not be backtracking to make complete, only resuming at current position.
+
+## Users + Comments
+
+* Associate users and comments
+* Save author's name to a comment automatically
+
+## Users + Campgrounds
+* Prevent an unauthenticated user from creasting a campground
+* Save username + id to newly created campground
+
+# Editing Campgrounds 
+* Add Method-Override
+* Add Edit route for campgrounds
+* Add Link to Edit page
+* Add Update route
+* Fix $set problem
+
