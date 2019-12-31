@@ -18,6 +18,8 @@ router.get('/new', isLoggedIn, (req, res) => {
 // CREATE COMMENT
 router.post('/', isLoggedIn, (req, res) => {
     // get campground info
+    console.log(req.params.id);
+    console.log(typeof req.params.id);
     Campground.findById(req.params.id, (err, campground) => {
         if (err) {
             console.log(err);
@@ -42,8 +44,20 @@ router.post('/', isLoggedIn, (req, res) => {
     })
 });
 
+// EDIT COMMENT
 router.get('/:comment_id/edit', (req, res) => {
-    res.render('/comments/edit', {campground_id: req.params.id})
+    Comment.findById(req.params.comment_id, (err, foundComment) => {
+        if (err) {
+            res.redirect('back');
+        }  else {
+            res.render('comments/edit', {campground_id: req.params.id, comment: foundComment});
+        }
+    })
+})
+
+// IPDATE COMMENT
+router.put('/:comment_id', (req, res) => {
+    res.render("Putting something here");
 })
 
 //MIDDLEWARE
