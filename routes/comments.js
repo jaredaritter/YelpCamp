@@ -23,7 +23,7 @@ router.post('/', isLoggedIn, (req, res) => {
     Campground.findById(req.params.id, (err, campground) => {
         if (err) {
             console.log(err);
-            res.redirect('/campgrounds/');
+            res.redirect('/campgrounds');
         } else {
             Comment.create(req.body.comment, (err, comment) => {
                 if (err) {
@@ -55,9 +55,15 @@ router.get('/:comment_id/edit', (req, res) => {
     })
 })
 
-// IPDATE COMMENT
+// UPDATE COMMENT
 router.put('/:comment_id', (req, res) => {
-    res.render("Putting something here");
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment) => {
+        if (err) {
+            res.redirect('back');
+        } else {
+            res.redirect('/campgrounds/' + req.params.id);
+        }
+    })
 })
 
 //MIDDLEWARE
