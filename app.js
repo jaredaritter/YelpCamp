@@ -9,6 +9,7 @@ const express = require('express'),
       Campground = require('./models/campground'),
       Comment = require('./models/comment'),
       User = require('./models/user'),
+      flash = require('connect-flash'),
       seedDB = require('./seeds');
 
 // REQUIRING ROUTES
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
+app.use(flash());
 
 // seedDB(); // seeding the DB
 
@@ -44,6 +46,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
 

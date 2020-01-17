@@ -4,7 +4,7 @@ const express = require('express'),
       User = require('../models/user');
 
 // ROOT
-      router.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.render('landing');
 });
 
@@ -43,15 +43,16 @@ router.post('/login', passport.authenticate('local',
 // LOGOUT
 router.get('/logout', (req, res) => {
     req.logout();
+    req.flash('success', 'Logged you out');
     res.redirect('/campgrounds');
 });
 
 // MIDDLEWARE
-function isLoggedIn(req, res, next){
-    if (req.isAuthenticated()){
-        return next();
-    }
-    res.redirect('/login');
-}
+// function isLoggedIn(req, res, next){
+//     if (req.isAuthenticated()){
+//         return next();
+//     }
+//     res.redirect('/login');
+// }
 
 module.exports = router;
