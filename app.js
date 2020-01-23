@@ -56,7 +56,10 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-// LISTENER
-app.listen(3000, () => {
-    console.log('Server started');
-});
+// DEPLOYED LISTENER
+app.listen(process.env.PORT, process.env.IP);
+
+//LOCAL LISTENER
+// app.listen(3000, () => {
+//     console.log('Server started');
+// });
