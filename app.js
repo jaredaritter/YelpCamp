@@ -22,7 +22,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb://localhost/yelp_camp");
 mongoose.connect("mongodb+srv://jared:" + process.env.PW + "@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority");
 
 // mongodb+srv://jared:<password>@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority
