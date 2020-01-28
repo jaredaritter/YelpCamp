@@ -23,6 +23,19 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://jared:" + process.env.PW + "@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority");
+
+// mongodb+srv://jared:<password>@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority
+
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://jared:<password>@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
