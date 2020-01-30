@@ -87,9 +87,9 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
 // DEPLOYED LISTENER
-// app.listen(process.env.PORT, process.env.IP);
+app.listen(process.env.PORT, process.env.IP);
 
 // LOCAL LISTENER
-app.listen(3000, () => {
-    console.log('Server started');
-});
+// app.listen(3000, () => {
+//     console.log('Server started');
+// });
