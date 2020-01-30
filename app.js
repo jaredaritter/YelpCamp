@@ -25,12 +25,22 @@ mongoose.set('useUnifiedTopology', true);
 // mongoose.connect("mongodb://localhost/yelp_camp");
 mongoose.connect('mongodb+srv://jared:password467@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useCreateIndex: true
 }).then(() => {
     console.log('Connected to DB!');
 }).catch(err => {
     console.log('ERROR: ' + err.message);
-});
+})
+
+
+// FULL VERSION
+// mongoose.connect('mongodb+srv://jared:password467@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority', {
+//     useNewUrlParser: true,
+//     useCreateIndex: true
+// }).then(() => {
+//     console.log('Connected to DB!');
+// }).catch(err => {
+//     console.log('ERROR: ' + err.message);
+// });
 
 // mongodb+srv://jared:<password>@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority
 
@@ -77,9 +87,9 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
 // DEPLOYED LISTENER
-app.listen(process.env.PORT, process.env.IP);
+// app.listen(process.env.PORT, process.env.IP);
 
-//LOCAL LISTENER
-// app.listen(3000, () => {
-//     console.log('Server started');
-// });
+// LOCAL LISTENER
+app.listen(3000, () => {
+    console.log('Server started');
+});
