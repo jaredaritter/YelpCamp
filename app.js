@@ -23,7 +23,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 // mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect('mongodb+srv://${process.env.USER}:${process.env.PW}@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://jared:password467@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
 }).then(() => {
     console.log('Connected to DB!');
