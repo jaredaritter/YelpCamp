@@ -22,8 +22,10 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-// mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect(process.env.DATABASEURL, {
+mongoose.connect("mongodb://localhost/yelp_camp");
+
+const url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url, {
     useNewUrlParser: true,
 }).then(() => {
     console.log('Connected to DB!');
