@@ -23,7 +23,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 // mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect('mongodb+srv://jared:password467@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DATABASEURL, {
     useNewUrlParser: true,
 }).then(() => {
     console.log('Connected to DB!');
@@ -79,6 +79,6 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 app.listen(process.env.PORT, process.env.IP);
 
 // LOCAL LISTENER
-// app.listen(3000, () => {
-//     console.log('Server started');
-// });
+app.listen(3000, () => {
+    console.log('Server started');
+});
