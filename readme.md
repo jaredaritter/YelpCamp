@@ -82,3 +82,12 @@ Comment Destroy Route:     <!-- /campgrounds/:id/comments/:comment_id -->
 * Demo Working version
 * Install and configure connect-flash
 * Add bootstrap alerts to header
+
+## Uploading to Heroku
+* Heroku setup
+* Troubleshooting
+
+## Connecting to MongoDB Atlas
+* Setup Atlas cluster
+* Connect app.js to cloud db instead of local
+* Secure connection with variables instead of direct passthrough
