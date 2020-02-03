@@ -33,18 +33,6 @@ mongoose.connect(url, {
     console.log('ERROR: ' + err.message);
 })
 
-// mongodb+srv://jared:<password>@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority
-
-
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://jared:<password>@cluster0-gh7fl.mongodb.net/test?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
@@ -55,7 +43,7 @@ app.use(flash());
 
 // PASSPORT CONFIG
 app.use(require('express-session')({
-    secret: 'There is a huge secret that I am not going to tell you',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
@@ -81,6 +69,6 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 app.listen(process.env.PORT, process.env.IP);
 
 // LOCAL LISTENER
-app.listen(3000, () => {
-    console.log('Server started');
-});
+// app.listen(3000, () => {
+//     console.log('Server started');
+// });
